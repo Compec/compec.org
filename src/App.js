@@ -12,6 +12,8 @@ import NewsGallery from "./Body/NewsGallery";
 
 import News from "./Body/News"
 
+// import Member from "./Body/Member";
+
 import Logo from "./Header/Logo";
 
 import Dialog from "./Body/Dialog";
@@ -20,10 +22,30 @@ import AppBar from "./Header/AppBar"
 
 import {Container} from "@material-ui/core";
 
-function App() {
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      openMenu:false,
+
+
+    };
+  }
+
+
+  setDialogComponent(){
+
+  }
+
+  setDialog(v){
+    this.setState({openMenu:v,});
+    
+  }
+
+  render(){
   return (
     <div className="App">
-        <AppBar/>
+        <AppBar type={this.setDialogComponent.bind(this)} set={this.setDialog.bind(this)}/>
       <header className="App-header">
   
         <Logo/> 
@@ -43,7 +65,7 @@ function App() {
       
 
 
-         <Dialog component="Send" />
+         <Dialog set={this.setDialog.bind(this)} open={this.state.openMenu} component="Send" />
 
 
 
@@ -67,7 +89,7 @@ function App() {
       
       
     </div>
-  );
+  );}
 }
 
 export default App;

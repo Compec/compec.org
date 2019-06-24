@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -62,8 +62,10 @@ export default function ButtonAppBar() {
     >
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          <ListItem onClick={event => props.set(true)}  button key={text}>
+            <ListItemIcon >{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            
+          
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -71,8 +73,8 @@ export default function ButtonAppBar() {
       <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem onClick={<Dialog/>} button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+          <ListItem  onClick={event => props.set(true)}   button key={text}>
+            <ListItemIcon   >{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
