@@ -22,6 +22,7 @@ import MailIcon from '@material-ui/icons/Mail';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    opacity:"%50"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -44,6 +45,7 @@ export default function ButtonAppBar(props) {
     left: false,
     bottom: false,
     right: false,
+    
   });
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -115,9 +117,9 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
 
 
-      <AppBar position="static">
+      <AppBar style={{ background: 'transparent', boxShadow: 'none'}} position="static">
         <Toolbar>
-          <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
+          <IconButton onClick={toggleDrawer('right', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon  
            
             />
@@ -130,8 +132,8 @@ export default function ButtonAppBar(props) {
       </AppBar>
     </div>
 
-    <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-        {sideList('left')}
+    <Drawer open={state.right} onClose={toggleDrawer('right', false)}>
+        {sideList('right')}
       </Drawer>
 
     </div>
