@@ -18,6 +18,7 @@ class App extends React.Component {
       openMenu: false,
 
       currentPage: "Home",
+      pages:["Home", "About", "Career", "Events", "Team", "Contact"],
 
     };
   }
@@ -28,6 +29,8 @@ class App extends React.Component {
         return <Home />;
       case "News":
         return <News/>;
+      case "About":
+        return <About/>;
 
     }
 
@@ -42,8 +45,8 @@ class App extends React.Component {
 
       <div className="App">
         {/* <AppBar type={this.setDialogComponent.bind(this)} set={this.setDialog.bind(this)}/> */}
-        <Logo setPage={this.setCurrentPage.bind(this)} />
-        <BotNav setPage={this.setCurrentPage.bind(this)} />
+        <Logo pages={this.pages} setPage={this.setCurrentPage.bind(this)} />
+        <BotNav pages={this.pages} setPage={this.setCurrentPage.bind(this)} />
 
         {this.currentPageSelect()}
 
