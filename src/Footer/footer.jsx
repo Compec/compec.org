@@ -17,19 +17,27 @@ function MadeWithLove() {
   );
 }
 
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+ 
+};
 const useStyles = makeStyles(theme => ({
   
   footer: {
     padding: theme.spacing(2),
     marginTop: 'auto',
     backgroundColor: 'blue',
-    color:"white"
+    color:"white",
+    paddingBottom: isMobileDevice()?85:theme.spacing(2),
   },
 }));
 
 export default function StickyFooter() {
   const classes = useStyles();
 
+
+
+  
   return (
     <div >
       {/* <CssBaseline /> */}
@@ -43,7 +51,7 @@ export default function StickyFooter() {
         </Typography>
         <Typography variant="body1">Sticky footer placeholder.</Typography>
       </Container> */}
-      <footer className={classes.footer}>
+      <footer  className={classes.footer}>
         <Container   maxWidth="sm">
           {/* <Typography variant="body1">My sticky footer can be found here.</Typography> */}
           <MadeWithLove />

@@ -7,40 +7,55 @@ import BotNav from "./Footer/BotNav";
 import Dialog from "./Body/Dialog";
 import AppBar from "./Header/AppBar";
 import Home from "./Home/Home";
-
+import Logo from "./Header/Logo"
+import News from "./Body/News";
 import Footer from "./Footer/footer";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      openMenu:false,
+    this.state = {
+      openMenu: false,
+
+      currentPage: "Home",
+
     };
   }
-  setDialogComponent(){
+
+  currentPageSelect() {
+    switch (this.state.currentPage) {
+      case "Home":
+        return <Home />;
+      case "News":
+        return <News/>;
+
+    }
+
 
   }
-
-  setDialog(v){
-    this.setState({openMenu:v,});
-    
+  setCurrentPage(page) {
+    this.setState({ currentPage: page });
   }
 
-  render(){
-  return (
+  render() {
+    return (
 
-    <div className="App">
-      {/* <AppBar type={this.setDialogComponent.bind(this)} set={this.setDialog.bind(this)}/> */}
-      <Home/> 
-      <Footer/>
-      <BotNav/>
+      <div className="App">
+        {/* <AppBar type={this.setDialogComponent.bind(this)} set={this.setDialog.bind(this)}/> */}
+        <Logo setPage={this.setCurrentPage.bind(this)} />
+        <BotNav setPage={this.setCurrentPage.bind(this)} />
 
-    </div>
-    
-    
+        {this.currentPageSelect()}
 
-    
-  );}
+        <Footer />
+
+      </div>
+
+
+
+
+    );
+  }
 }
 
 export default App;

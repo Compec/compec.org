@@ -12,32 +12,34 @@ const useStyles = makeStyles({
     display:"flex",
     bottom: 0 ,
     position: "fixed",
-    width: 500
+    width: '100%',
+    height: 60,
+    zIndex:9999
   },
   root1: {
     
-    minWidth: 40
+    minWidth: 10
     
   },
 });
 
-export default function LabelBottomNavigation() {
+export default function LabelBottomNavigation(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState('recents');
 
   function handleChange(event, newValue) {
     setValue(newValue);
+    props.setPage(newValue);
   }
   if(isMobileDevice()){
   return ( 
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <BottomNavigation showLabels value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />}className={classes.root1} />
       <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />}className={classes.root1} />
       <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />}className={classes.root1} />
-      <BottomNavigationAction label="Folder" value="folder" icon={<Icon>folder</Icon>} className={classes.root1}/>
-      <BottomNavigationAction label="Folder1" value="folder1" icon={<Icon>folder</Icon>} className={classes.root1}/>
+      <BottomNavigationAction label="HOME" value="Home" icon={<Icon>folder</Icon>} className={classes.root1}/>
+      <BottomNavigationAction label="NEWS" value="News" icon={<Icon>folder</Icon>} className={classes.root1}/>
       <BottomNavigationAction label="Folder2" value="folder2" icon={<Icon>folder</Icon>} className={classes.root1}/>
-      <BottomNavigationAction label="Folder3" value="folder3" icon={<Icon>folder</Icon>} className={classes.root1}/>
     </BottomNavigation>
   );
   }

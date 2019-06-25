@@ -15,7 +15,7 @@ class Home extends React.Component{
     render(){
         return(
             <div>
-                <Logo/> 
+               
                 <About/>
                 <Container>
                     <News/>

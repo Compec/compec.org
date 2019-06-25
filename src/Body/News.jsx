@@ -110,7 +110,8 @@ import InfoIcon from '@material-ui/icons/Info';
          className={classes.gridList} 
           cols={2.5} >
         {tileData.map(tile => (
-          <GridListTile  key={tile.img} 
+          <GridListTile  
+          // key={tile.img} 
           cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1}
           
           >
