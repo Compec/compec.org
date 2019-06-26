@@ -45,8 +45,8 @@ class App extends React.Component {
 
       <div className="App">
         {/* <AppBar type={this.setDialogComponent.bind(this)} set={this.setDialog.bind(this)}/> */}
-        <Logo pages={this.pages} setPage={this.setCurrentPage.bind(this)} />
-        <BotNav pages={this.pages} setPage={this.setCurrentPage.bind(this)} />
+        <Logo pages={this.state.pages} setPage={this.setCurrentPage.bind(this)} />
+        <BotNav pages={this.state.pages} setPage={this.setCurrentPage.bind(this)} />
 
         {this.currentPageSelect()}
 

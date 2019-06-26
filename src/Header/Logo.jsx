@@ -55,7 +55,7 @@ export default withStyles(styles)(
                         <Grid hidden={this.isMobileDevice()} item xs={12} sm={5}>
                             <Grid justify="space-between"
                                 alignItems="center" container >
-                                {["Home", "About", "Career", "Events", "Team", "Contact"].map(value => (
+                                {this.props.pages.map(value => (
                                     <Grid item xs={4} sm={4} md={2} >
                                         <Button onClick={() => this.props.setPage(value)} variant="contained" color="primary" className={classes.button}>
                                             {value}

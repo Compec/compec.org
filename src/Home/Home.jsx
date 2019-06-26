@@ -3,6 +3,7 @@ import Logo from "../Header/Logo";
 import About from "../Header/About";
 import {Container} from "@material-ui/core";
 import News from "../Body/News";
+import Motto from "./Motto";
 
 
 class Home extends React.Component{
@@ -15,7 +16,7 @@ class Home extends React.Component{
     render(){
         return(
             <div>
-               
+                <Motto/>
                 <About/>
                 <Container>
                     <News/>
