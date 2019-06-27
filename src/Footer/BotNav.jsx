@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Icon from '@material-ui/core/Icon';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles({
   root: {
@@ -34,12 +32,18 @@ export default function LabelBottomNavigation(props) {
   if(isMobileDevice()){
   return ( 
     <BottomNavigation showLabels value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />}className={classes.root1} />
-      <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />}className={classes.root1} />
-      <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />}className={classes.root1} />
-      <BottomNavigationAction label="HOME" value="Home" icon={<Icon>folder</Icon>} className={classes.root1}/>
-      <BottomNavigationAction label="NEWS" value="News" icon={<Icon>folder</Icon>} className={classes.root1}/>
-      <BottomNavigationAction label="Folder2" value="folder2" icon={<Icon>folder</Icon>} className={classes.root1}/>
+
+      {props.pages.map(value=> (
+
+<BottomNavigationAction label={value} value={value} icon={<HomeIcon />}className={classes.root1} />
+
+
+      )
+        
+        
+        )}
+      
+     
     </BottomNavigation>
   );
   }
