@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import { Container, Grid, Paper, Typography, Button } from '@material-ui/core';
 
 import logo from '../Assets/compec.png';
 import arrow from '../Assets/tenor.gif';
@@ -45,6 +45,7 @@ class Motto extends React.Component {
                             <Grid item xs={12} sm={4} >
                                 {/* <img src={logo} alt="" style={{ 
  width: "100% ", height: "100%", maxWidth: "100% ", maxHeight: "100%" }} /> */}
+ <Button variant="contained" color="primary"  href="javascript:void(Tawk_API.toggle())">CHAT WITH US</Button>
                             </Grid>
 
                         </Grid>
